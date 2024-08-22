@@ -1,0 +1,44 @@
+package com.tericcabrel.authapi.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tericcabrel.authapi.entities.Blog;
+import com.tericcabrel.authapi.services.BlogServices;
+
+@CrossOrigin(origins = "http://localhost:5173")
+
+@RequestMapping("/blog")
+@RestController
+public class BlogController {
+	
+	@Autowired
+	private BlogServices blogServices;
+	
+	 @PostMapping("/create")
+	 public ResponseEntity createBlog(@RequestBody Blog blog)
+	 {
+		 Blog newBlog =  blogServices.createBlog(blog);
+		 return ResponseEntity.ok("Blog " + newBlog.getTitle() + "Created Sucessfully");
+	 }
+	 
+	 @GetMapping("")
+	 public ResponseEntity getallArticles() {
+		   
+		 List <Blog> blog  = blogServices.getAllBlogs();
+		 return ResponseEntity.ok(blog);
+		 
+	 }
+	 
+	 
+	 
+
+}
