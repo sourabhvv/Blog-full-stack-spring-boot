@@ -11,6 +11,7 @@ import Articles from './pages/Articles';
 import Dashboard from './pages/Dashboard';
 import CreateBlogs from './pages/CreateBlogs';
 import Article from './pages/Article';
+import EditBlog from './pages/EditBlog';
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
 
@@ -20,13 +21,13 @@ function App() {
         <Navbar/>
         <Switch>
           <Route path='/create' component={CreateBlogs} /> 
+          <Route path='/edit/:id' component={EditBlog} /> 
           <Route path="/article/:id" component={Article} />
-          <Route path='/articles' component={Articles} />
+          <Route path='/' component={Articles} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/Profile/:id" component={AuthorProfilePage} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/login" component={Login} />
-          <Route path="/" component={Home} />
         
         </Switch>
       </div>
@@ -38,12 +39,14 @@ function App() {
       <div className="App">
         <Navbar/>
         <Switch>
+          <Route path="/article/:id" component={Article} />
+
           <Route path='/articles' component={Articles} />
          
           <Route path="/Profile/:id" component={AuthorProfilePage} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/login" component={Login} />
-          <Route path="/" component={Home} />
+          <Route path='/' component={Articles} />
         
         </Switch>
       </div>

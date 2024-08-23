@@ -4,8 +4,17 @@ public class RegisterUserDto {
     private String email;
     private String password;
     private String fullName;
+    private String image;
 
-    public String getEmail() {
+    public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getEmail() {
         return email;
     }
 

@@ -20,8 +20,20 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private String fullName;
+    
+    @Column(name="image")
+    private String image;
 
-    @Column(unique = true, length = 100, nullable = false)
+    public String getImage() {
+		return image;
+	}
+
+	public User setImage(String image) {
+		this.image = image;
+		return this;
+	}
+
+	@Column(unique = true, length = 100, nullable = false)
     private String email;
 
     @Column(nullable = false)

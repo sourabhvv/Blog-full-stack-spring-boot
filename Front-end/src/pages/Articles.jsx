@@ -59,7 +59,7 @@ function Articles() {
           <h1 className="text-3xl font-bold text-gray-900">
             Latest Articles, Poems, Stories
           </h1>
-          <p className="text-lg text-gray-600">A blog created with Pencraft</p>
+          <p className="text-lg text-gray-600">Discover Blogs </p>
           <div className="relative w-full max-w-xl mx-auto bg-white rounded-full">
             <input
               placeholder="Search articles..."

@@ -32,7 +32,8 @@ public class AuthenticationService {
         var user = new User()
             .setFullName(input.getFullName())
             .setEmail(input.getEmail())
-            .setPassword(passwordEncoder.encode(input.getPassword()));
+            .setPassword(passwordEncoder.encode(input.getPassword()))
+            .setImage(input.getImage());
 
         return userRepository.save(user);
     }

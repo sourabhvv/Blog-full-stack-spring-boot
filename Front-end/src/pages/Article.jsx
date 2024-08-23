@@ -30,6 +30,13 @@ function Article() {
     }
   }, [id]);
 
+  function deslugify(str) {
+    return str
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, l => l.toUpperCase())
+      .trim();
+  }
+
   useEffect(() => {
     fetchArticle();
   }, [fetchArticle]);
@@ -45,7 +52,7 @@ function Article() {
         {error && <p className="text-red-500 font-medium">Error: {error.message}</p>}
         {article ? (
           <div>
-            <h1 className="text-4xl font-bold mb-4 text-gray-800">{article.title}</h1>
+            <h1 className="text-4xl font-bold mb-4 text-gray-800">{deslugify(article.title)}</h1>
             <div className="bg-white shadow-lg rounded-lg p-6">
               <ReactMarkdown
                 rehypePlugins={[rehypeRaw]}

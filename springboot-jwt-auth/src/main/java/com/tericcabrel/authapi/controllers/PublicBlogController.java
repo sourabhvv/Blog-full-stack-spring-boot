@@ -28,7 +28,7 @@ public class PublicBlogController {
         if (blog != null) {
             return ResponseEntity.ok(blog);
         } else {
-            return ResponseEntity.notFound().build();  // Return 404 if blog not found
+            return ResponseEntity.notFound().build();  
         }
     }
 	@GetMapping("/blogs")

@@ -5,11 +5,10 @@ import axios from 'axios';
 import { BASE_URL } from '../util/config';
 function SignUp() {
   
-  const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullname,setFullname] = useState("");
-
+  const [image,setImage] = useState("");
 
  
 
@@ -20,6 +19,7 @@ function SignUp() {
       password:password,
       email:email,
       fullName:fullname,
+      image:image,
     }).then(function(response){
       if(response.status==201){
         localStorage.setItem('id',response.data.user._id);
@@ -82,6 +82,18 @@ function SignUp() {
                                         value={password}
                                         placeholder="Password"
                                         onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
+
+
+                                <div className="mb-4">
+                                    <label className="block text-grey-darker text-sm font-bold mb-2"> Profile Image url </label>
+                                    <input
+                                        className="border rounded w-full py-2 px-3 text-grey-darker"
+                                        type="text"
+                                        value={image}
+                                        placeholder="enter profile image url"
+                                        onChange={(e) => setImage(e.target.value)}
                                     />
                                 </div>
                             
